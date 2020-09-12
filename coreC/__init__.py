@@ -1,0 +1,1 @@
+from pyNamedpace import Namespace
