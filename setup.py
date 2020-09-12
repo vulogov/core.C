@@ -33,7 +33,7 @@ def nsRelease(ns):
     return RELEASE
 """
 
-name="coref"
+name="coreC"
 version="0.1"
 release="0.1.0"
 author='Vladimir Ulogov'
@@ -43,20 +43,21 @@ license='GPL3'
 
 def load_requirements(fname):
     reqs = parse_requirements(fname, session="test")
+    #print([str(ir.requirement) for ir in reqs])
     return [str(ir.requirement) for ir in reqs]
 
 def write_version(fname):
     f = open("{}/{}".format(root_dir, fname), 'w')
     f.write(VERSION_PY % (version, release, url, author, author_email, license, license_txt, long_description))
 
-write_version("corec/version.py")
+write_version("coreC/version.py")
 
 
 
 setup(name=name,
     setup_requires=['pytest-runner'],
     version=release,
-    description='Functional, Namespace-based application CORE',
+    description='Namespace-based expert system shell',
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
