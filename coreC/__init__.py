@@ -1,1 +1,1 @@
-from pyNamedpace import Namespace
+from .NS import NS
