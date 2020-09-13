@@ -3,11 +3,13 @@ import clips
 import faker
 from pyNamespace import Namespace
 from .TPL import TPL
+from .IMP import IMP
 
-class NS(object, TPL):
+class NS(object, TPL, IMP):
     def __init__(self, *args, **kw):
         graphs = [ x.ns.value for x in args ]
         self.ns = Namespace(*graphs)
+        IMP.__init__(self)
         TPL.__init__(self)
         for k in kw:
             self.ns.set(f"/etc/{k}", kw[k])
@@ -29,6 +31,7 @@ class NS(object, TPL):
             env = getattr(self, 'env')
             env.clear()
             env.reset()
+            IMP.Reload(self)
             TPL.Reload(self)
 
 
