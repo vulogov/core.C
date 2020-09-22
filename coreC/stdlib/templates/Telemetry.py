@@ -7,6 +7,6 @@ TELEMETRY_TPL="""
 )
 """
 
-_tmp = {
+_tpl = {
     "Telemetry": TELEMETRY_TPL
 }

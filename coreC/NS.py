@@ -5,7 +5,7 @@ from pyNamespace import Namespace
 from .TPL import TPL
 from .IMP import IMP
 
-class NS(object, TPL, IMP):
+class NS(TPL, IMP):
     def __init__(self, *args, **kw):
         graphs = [ x.ns.value for x in args ]
         self.ns = Namespace(*graphs)
@@ -18,6 +18,7 @@ class NS(object, TPL, IMP):
         self.mkdir = self.ns.mkdir
         self.rm = self.ns.rm
         self.o = self.ns.object
+        self.ls = self.ns.ls
         self.Set("id", str(uuid.uuid4()))
         self.Set("faker", faker.Faker())
         self.Set("env", clips.Environment())
@@ -33,5 +34,3 @@ class NS(object, TPL, IMP):
             env.reset()
             IMP.Reload(self)
             TPL.Reload(self)
-
-
